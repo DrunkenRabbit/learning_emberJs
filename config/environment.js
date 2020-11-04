@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ember-js-learning',
     environment,
-    rootURL: '/',
+    rootURL: '/learning_emberJs',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
