@@ -1,0 +1,26 @@
+<div class="htop">
+  <h2 class="text-center">Спикеры</h2>
+  <div class="form-row navbar-panel justify-content-end">
+    <div class="col-4 text-right">
+      <input class="form-control" type="search" placeholder="ФИО" aria-label="Спикер">
+    </div>
+    <div class="col-mb-auto text-right">
+      <button class="btn btn-outline-primary" type="submit">Найти</button>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    {{#each this.model as |speaker|}}
+      <div class="col mb-4">
+        <SpeakerCard
+                @speakerId={{speaker.id}}
+                @firstName={{speaker.firstName}}
+                @lastName={{speaker.lastName}}
+                @patronymic={{speaker.patronymic}}
+                @photoUrl={{speaker.photoUrl}}
+
+        />
+      </div>
+    {{/each}}
+  </div>
+</div>
+{{outlet}}
