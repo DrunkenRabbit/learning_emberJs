@@ -1,0 +1,35 @@
+<div class="htop">
+  <h2 class="text-center">Книги</h2>
+  <div class="form-row navbar-panel justify-content-between">
+    <div class="col-md-auto align-self-start">
+      <form class="form-inline">
+        <input class="form-control mr-2 search-long" type="search" placeholder="Найти по полям" aria-label="Найти по полям">
+        <button class="btn btn-outline-primary my-2" type="submit">Найти</button>
+      </form>
+    </div>
+    <div class="col-md-auto">
+      <form class="form-inline">
+        <button class="btn btn-outline-primary my-2">Создать</button>
+        <input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам">
+        <button class="btn btn-outline-primary my-2" type="submit">Поиск</button>
+      </form>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 fix-margin">
+    {{#each this.model as |book|}}
+      <div class="col mb-4">
+        <BookCard
+                @bookId={{book.id}}
+                @bookTitle={{book.bookTitle}}
+                @authorName={{book.authorName}}
+                @bookCoverUrl={{book.bookCoverUrl}}
+                @tags={{book.tags}}
+                @rating={{book.rating}}
+                @numberOfPages={{book.numberOfPages}}
+                @description={{book.description}}
+        />
+      </div>
+    {{/each}}
+  </div>
+</div>
+{{outlet}}

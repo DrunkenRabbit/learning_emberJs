@@ -18,6 +18,7 @@ module.exports = function(environment) {
     },
 
     APP: {
+      backEndURL:"https://ember-js-learning-db.herokuapp.com/"
       // Here you can pass flags/options to your application instance
       // when it is created
     }
