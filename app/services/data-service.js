@@ -23,30 +23,56 @@ export default class DataServiceService extends Service {
     return response.json();
   }
 
-  // changeBook(book) {
-  //   return fetch(`${config.APP.backEndURL}/books/${book.id}`, {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(book)
-  //   });
-  // }
-  //
-  // createBook(book) {
-  //   return fetch(`${config.APP.backEndURL}/books`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(book)
-  //   });
-  // }
-  //
-  // deleteBook(id) {
-  //   return fetch(`${config.APP.backEndURL}/books/${id}`, {
-  //     method: 'DELETE',
-  //   });
-  // }
+  changeSpeaker(speaker) {
+    return fetch(`${config.APP.backEndURL}speakers/${speaker.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(speaker)
+    });
+  }
+  changeBook(book) {
+    console.log(book);
+    return fetch(`${config.APP.backEndURL}books/${book.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(book)
+    });
+  }
+
+  createBook(book) {
+    return fetch(`${config.APP.backEndURL}books`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(book)
+    });
+  }
+  createSpeaker(speaker) {
+
+    return fetch(`${config.APP.backEndURL}speakers`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(speaker)
+    });
+  }
+
+  deleteSpeaker(id) {
+    return fetch(`${config.APP.backEndURL}speakers/${id}`, {
+      method: 'DELETE',
+    });
+  }
+
+  deleteBook(id) {
+    return fetch(`${config.APP.backEndURL}books/${id}`, {
+      method: 'DELETE',
+    });
+  }
 
 }
