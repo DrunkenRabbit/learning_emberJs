@@ -6,6 +6,7 @@
     </div>
     <div class="col-mb-auto text-right">
       <button class="btn btn-outline-primary" type="submit">Найти</button>
+      <LinkTo @class="btn btn-outline-primary" @route="create-speaker">Cоздать</LinkTo>
     </div>
   </div>
   <div class="row row-cols-1 row-cols-md-3">
@@ -17,6 +18,7 @@
                 @lastName={{speaker.lastName}}
                 @patronymic={{speaker.patronymic}}
                 @photoUrl={{speaker.photoUrl}}
+                @deleteSpeaker={{this.deleteSpeaker}}
 
         />
       </div>
