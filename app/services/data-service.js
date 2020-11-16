@@ -33,7 +33,6 @@ export default class DataServiceService extends Service {
     });
   }
   changeBook(book) {
-    console.log(book);
     return fetch(`${config.APP.backEndURL}books/${book.id}`, {
       method: 'PATCH',
       headers: {
