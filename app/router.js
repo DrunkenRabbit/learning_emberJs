@@ -13,4 +13,5 @@ Router.map(function() {
   this.route('edit-speaker', {path: "edit-speaker/:id"});
   this.route('create-book');
   this.route('create-speaker');
+  this.route('not-found', { path: "*path"});
 });

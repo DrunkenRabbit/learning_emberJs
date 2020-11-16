@@ -1,10 +1,50 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+
 
 export default class SpeakersRoute extends Route {
   @service dataService;
 
-  async model({search }) {
-    return this.dataService.readSpeakers(search) ;
+  queryParams = {
+    search: {
+      refreshModel: true
+    }
+  }
+
+  async model({ search }) {
+    let promise = new Promise((resolve, reject) => {
+        resolve(this.dataService.readSpeakers(search));
+    }).
+    then((data) => {
+      this.controller.model = data;
+    }).finally(() => {
+      if (promise === this.lastPromise) {
+        this.controller.isLoading = false;
+      }
+    });
+
+    this.lastPromise = promise;
+    return {
+      isLoading: true
+    }
+  }
+
+  setupController(controller, model) {
+    super.setupController(...arguments);
+
+    controller.isLoading = true;
+  }
+
+  resetController(controller, isExiting) {
+    if (isExiting) {
+      controller.isLoading = false;
+      this.lastPromise = false;
+    }
+  }
+
+  @action
+  loading() {
+    return false;
   }
 }
