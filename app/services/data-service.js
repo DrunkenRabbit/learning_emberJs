@@ -2,8 +2,17 @@ import Service from '@ember/service';
 import config from 'ember-js-learning/config/environment';
 
 export default class DataServiceService extends Service {
-  async readBooks(searchValue) {
-    let searchSegm = searchValue ? `?q=${searchValue}` : '';
+  async readBooks(searchSimple, searchByTagName) {
+    let searchSegmSimple = searchSimple ? `q=${searchSimple}` : '';
+    let searchSegmTag = searchByTagName ? `tags_like=${searchByTagName}` : '';
+    let searchSegm = '';
+    if (searchSimple!=='' && searchByTagName!==''){
+      searchSegm = `?${searchSegmSimple}&${searchSegmTag}`
+    } else if(searchSimple!==''){
+      searchSegm=`?${searchSegmSimple}`;
+    } else {
+      searchSegm=`?${searchSegmTag}`;
+    }
     let response = await fetch(`${config.APP.backEndURL}books${searchSegm}`);
     return response.json();
   }

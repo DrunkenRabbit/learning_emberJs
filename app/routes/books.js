@@ -7,12 +7,15 @@ export default class BooksRoute extends Route {
   queryParams = {
     search: {
       refreshModel: true
+    },
+    searchByTagN:{
+      refreshModel: true
     }
   }
 
-  async model({ search }) {
+  async model({search,searchByTagN }) {
     let promise = new Promise((resolve, reject) => {
-      resolve(this.dataService.readBooks(search));
+      resolve(this.dataService.readBooks(search, searchByTagN));
     }).
     then((data) => {
       this.controller.model = data;

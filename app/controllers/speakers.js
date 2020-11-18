@@ -14,6 +14,7 @@ export default class SpeakersController extends Controller {
   async deleteSpeaker(id) {
     await this.dataService.deleteSpeaker(id);
 
-    this.transitionToRoute('speakers');
+    this.transitionToRoute('index');
+    this.transitionToRoute('speakers'); // КОСТЫЫЫЫЛЬ
   }
 }

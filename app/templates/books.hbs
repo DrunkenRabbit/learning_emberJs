@@ -10,8 +10,8 @@
     <div class="col-md-auto">
       <form class="form-inline">
         <LinkTo @class="btn btn-outline-primary my-2" @route="create-book">Создать</LinkTo>
-        <input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам">
-        <button class="btn btn-outline-primary my-2" type="submit">Поиск</button>
+        <Input @class="form-control mr-2" @type="search" @aria-label="Найти по тегам" @placeholder="Поиск по тегам" @value={{searchByTagN}} />
+        <button class="btn btn-outline-primary my-2" type="submit" >Поиск</button>
       </form>
     </div>
   </div>
