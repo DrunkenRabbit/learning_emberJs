@@ -1,7 +1,10 @@
 <div class="row align-items-center h-100">
   <div class="col text-center">
     <div class="welcome-page">
-      <img src="./404image.jpg" alt="Error">
+      <img src="./error.gif" alt="Error">
+      {{#if model.error}}
+        <h2>Error: {{model.error}}</h2>
+      {{/if}}
     </div>
   </div>
 </div>
