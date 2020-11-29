@@ -14,7 +14,7 @@ export default class EditBookController extends Controller {
       });
 
 
-      this.transitionToRoute('speaker');
+      this.transitionToRoute('book');
     } catch (e) {
       this.send('error', e);
     }
