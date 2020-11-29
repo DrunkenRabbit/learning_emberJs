@@ -7,13 +7,13 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     'Content-Type': 'application/json'
   };
 
-  // buildURL(modelName, id, snapshot, requestType, query) {
-  //   let url = super.buildURL(...arguments);
-  //   if (modelName === 'speaker' && requestType === 'findRecord' && id) {
-  //     url += '?_embed=books';
-  //   }
-  //
-  //   return url;
-  // }
+  buildURL(modelName, id, snapshot, requestType, query) {
+    let url = super.buildURL(...arguments);
+    // if (modelName === 'speaker' && requestType === 'findRecord' && id) {
+    //   url += '?_embed=books';
+    // }
+
+    return url;
+  }
 
 }

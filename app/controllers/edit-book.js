@@ -7,14 +7,18 @@ export default class EditBookController extends Controller {
   @service dataService;
 
   @action
-  async saveBook(e) {
-    e.preventDefault();
+  async saveBook() {
+    try {
+      this.store.findRecord('book', this.model.id).then(function(book) {
+        book.save();
+      });
 
-    await this.dataService.changeBook(this.model);
 
-    this.transitionToRoute('books');
+      this.transitionToRoute('speaker');
+    } catch (e) {
+      this.send('error', e);
+    }
   }
-
   @action
   changeName(bookTitle) {
     this.bookTitle = bookTitle;

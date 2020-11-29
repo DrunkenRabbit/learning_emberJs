@@ -6,4 +6,5 @@ export default class SpeakerModel extends Model {
   @attr("string") patronymic;
   @attr("string") photoUrl;
 
+  // @hasMany('speaker') speakers;
 }

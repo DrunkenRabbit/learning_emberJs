@@ -1,17 +1,20 @@
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
+import {action} from '@ember/object';
 
 export default class EditSpeakerController extends Controller {
-  @service dataService;
 
   @action
-  async saveSpeaker(e) {
-    e.preventDefault();
+  async saveSpeaker() {
+    try {
+      this.store.findRecord('speaker', this.model.id).then(function(speaker) {
+        speaker.save();
+      });
 
-    await this.dataService.changeSpeaker(this.model);
 
-    this.transitionToRoute('speakers');
+      this.transitionToRoute('speaker');
+    } catch (e) {
+      this.send('error', e);
+    }
   }
 
   @action

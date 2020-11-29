@@ -12,4 +12,7 @@ export default class CreateBookRoute extends Route {
       description: "",
     };
   }
+  setupController(controller, model) {
+    super.setupController(...arguments);
+  }
 }
