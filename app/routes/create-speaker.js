@@ -10,9 +10,4 @@ export default class CreateSpeakerRoute extends Route {
     };
   }
 
-  setupController(controller, model) {
-    super.setupController(...arguments);
-
-    // controller.reset();
-  }
 }
