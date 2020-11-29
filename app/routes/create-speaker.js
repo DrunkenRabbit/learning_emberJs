@@ -9,10 +9,8 @@ export default class CreateSpeakerRoute extends Route {
       photoUrl: "./speaker.jpg"
     };
   }
-
   setupController(controller, model) {
     super.setupController(...arguments);
-
-    // controller.reset();
   }
+
 }

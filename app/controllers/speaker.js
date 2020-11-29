@@ -3,18 +3,15 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class SpeakersController extends Controller {
+export default class SpeakerController extends Controller {
   queryParams = ['search'];
 
   @tracked search = '';
   @tracked isLoading;
-  @service dataService;
 
   @action
   async deleteSpeaker(id) {
-    await this.dataService.deleteSpeaker(id);
-
-    this.transitionToRoute('index');
-    this.transitionToRoute('speakers'); // КОСТЫЫЫЫЛЬ
+    let deletedSpeaker = this.store.peekRecord('speaker', id);
+    await deletedSpeaker.destroyRecord();
   }
 }

@@ -1,10 +1,14 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
 export default class EditSpeakerRoute extends Route {
-  @service dataService;
 
   async model({id }) {
-    return this.dataService.readSpeaker(id);
+    let response = this.store.findRecord("speaker", id);
+    return response;
+  }
+
+  setupController(controller, model) {
+    super.setupController(...arguments);
+
   }
 }

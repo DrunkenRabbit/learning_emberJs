@@ -5,14 +5,13 @@ export default class CreateBookRoute extends Route {
     return {
       bookTitle: '',
       authorName: '',
-      bookCoverUrl: './book-cover.jpg',//пока какая нить дефолтная картинка
-      tags: [1,2],// надо их настроить
-      rating: "",// пока хз как передвать
-      numberOfPages: "",
+      bookCoverUrl: './book-cover.jpg',
+      tags: '',
+      rating: 85,
+      numberOfPages: 0,
       description: "",
     };
   }
-
   setupController(controller, model) {
     super.setupController(...arguments);
   }

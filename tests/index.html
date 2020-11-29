@@ -26,7 +26,22 @@
     <script src="{{rootURL}}assets/test-support.js"></script>
     <script src="{{rootURL}}assets/ember-js-learning.js"></script>
     <script src="{{rootURL}}assets/tests.js"></script>
-
+    <script src="js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/tagsinput.js"></script>
+    <script src="js/bootstrap-file.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/bootstrap-datepicker.ru.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.datepicker').datepicker({
+          clearBtn: true,
+          format: "dd.mm.yyyy",
+          language: "ru",
+          autoclose: true
+        });
+      });
+    </script>
     {{content-for "body-footer"}}
     {{content-for "test-body-footer"}}
   </body>
