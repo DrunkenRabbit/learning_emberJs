@@ -6,11 +6,10 @@ export default class CreateBookRoute extends Route {
       bookTitle: '',
       authorName: '',
       bookCoverUrl: './book-cover.jpg',
-      tags: [1,2],
-      rating: "",
-      numberOfPages: "",
+      tags: '',
+      rating: 85,
+      numberOfPages: 0,
       description: "",
     };
   }
-
 }
